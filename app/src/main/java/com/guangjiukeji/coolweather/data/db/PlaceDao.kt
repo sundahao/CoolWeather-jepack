@@ -1,6 +1,7 @@
 package com.guangjiukeji.coolweather.data.db
 
-import androidx.lifecycle.MutableLiveData
+import com.guangjiukeji.coolweather.data.model.place.City
+import com.guangjiukeji.coolweather.data.model.place.County
 import com.guangjiukeji.coolweather.data.model.place.Province
 import org.litepal.LitePal
 
@@ -13,5 +14,25 @@ class PlaceDao {
 
     fun getProvinceList(): MutableList<Province> = LitePal.findAll(Province::class.java)
 
-    fun getCityList(provinceId: Int) : MutableList<Province> = LitePal.where(provinceId.toString()).find(City::)
+    fun getCityList(provinceId: Int) : MutableList<City> = LitePal.where("provinceId = ?",provinceId.toString()).find(City::class.java)
+
+    fun getCountyList(cityId: Int) : MutableList<County> =LitePal.where("cityId = ?",cityId.toString()).find(County::class.java)
+
+    fun saveProvinceList(provinceList:List<Province>?){
+        if (provinceList != null && provinceList.isNotEmpty()){
+            LitePal.saveAll(provinceList)
+        }
+    }
+
+    fun saveCityList(cityList:List<City>?){
+        if (cityList != null && cityList.isNotEmpty()){
+            LitePal.saveAll(cityList)
+        }
+    }
+
+    fun saveCountyList(countyList:List<County>?) {
+        if (countyList != null && countyList.isNotEmpty()){
+            LitePal.saveAll(countyList)
+        }
+    }
 }

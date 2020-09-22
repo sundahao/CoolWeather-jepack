@@ -5,11 +5,10 @@ import org.litepal.crud.LitePalSupport
 
 /**
  * Author:sunchenghao
- * Date:2020/9/11.19:46
+ * Date:2020/9/14.10:24
  * Describe
  **/
-class City (@SerializedName("name") val cityName:String,@SerializedName("id") val cityCode:Int) :LitePalSupport() {
+class County(@SerializedName("name") val countyName:String,@SerializedName("weather_id") val weatherId:String) :LitePalSupport() {
     @Transient val id = 0
-    var provinceId = 0
-
+    var cityId = 0
 }

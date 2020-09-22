@@ -3,7 +3,7 @@
     <version value="1" />
     <list>
         <mapping class="com.guangjiukeji.coolweather.data.model.place.Province" />
-        <mapping class="com.guangjiukeji.coolweather.data.model.place.place.City" />
+        <mapping class="com.guangjiukeji.coolweather.data.model.place.City" />
         <mapping class="com.guangjiukeji.coolweather.data.model.place.County" />
     </list>
     <storage value="external" />
