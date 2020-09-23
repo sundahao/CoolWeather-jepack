@@ -33,7 +33,7 @@ class WeatherViewModel(private val repository: WeatherRepository) : ViewModel() 
     fun refreshWeather() {
         refreshing.value = true
         launch({
-            weather.value = repository.getWeather(weatherId)
+            weather.value = repository.refreshWeather(weatherId)
             weatherInitialized.value = true
             refreshing.value = false
         }, {

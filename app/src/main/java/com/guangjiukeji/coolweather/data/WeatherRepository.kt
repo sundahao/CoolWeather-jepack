@@ -30,6 +30,8 @@ class WeatherRepository private constructor(private val weatherDao: WeatherDao,
         return weather
     }
     
+    suspend fun refreshWeather(weatherId: String) = requestWeather(weatherId)
+    
     private suspend fun requestWeather(weatherId: String) = withContext(Dispatchers.IO) {
         val heWeather = network.fetchWeather(weatherId)
         val weather = heWeather.weather!![0]

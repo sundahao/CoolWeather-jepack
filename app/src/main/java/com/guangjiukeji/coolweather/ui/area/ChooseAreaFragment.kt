@@ -24,7 +24,7 @@ class ChooseAreaFragment : Fragment() {
     
     private val viewModel by lazy {
         ViewModelProvider(this,
-                          InjectorUtil.getChooseAreaModelFactory()).get(ChooseAreaViewModel::class.java)
+            InjectorUtil.getChooseAreaModelFactory()).get(ChooseAreaViewModel::class.java)
     }
     private var progressDialog: ProgressDialog? = null
     private lateinit var adapter: ArrayAdapter<String>
@@ -83,10 +83,10 @@ class ChooseAreaFragment : Fragment() {
                 } else if (activity is WeatherActivity) {
                     val weatherActivity = activity as WeatherActivity
                     weatherActivity.drawerLayout.closeDrawers()
-                    weatherActivity.viewModel.weatherId =viewModel.selectedCounty!!.weatherId
+                    weatherActivity.viewModel.weatherId = viewModel.selectedCounty!!.weatherId
                     weatherActivity.viewModel.refreshWeather()
                 }
-                viewModel.areaSelected.value =false
+                viewModel.areaSelected.value = false
             }
         })
         if (viewModel.dataList.isEmpty()) {
